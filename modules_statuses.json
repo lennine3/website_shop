@@ -1,0 +1,7 @@
+{
+    "Administration": true,
+    "User": true,
+    "Setting": true,
+    "Blog": true,
+    "Product": true
+}

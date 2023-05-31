@@ -1,0 +1,42 @@
+#success_modal .modal-content .modal-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+    background-color: #FF3767;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#errors_modal .modal-content .modal-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+    background-color: #d75a4a;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+button.close {
+    -webkit-appearance: none;
+    background: 0 0;
+    border: 0;
+    opacity: 1;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    padding: 5px 10px;
+    font-size: 21px;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.page-body .body {
+    text-align: center;
+    padding: 50px 25px;
+}
+
+.title-modal {
+    margin-bottom: 24px;
+}

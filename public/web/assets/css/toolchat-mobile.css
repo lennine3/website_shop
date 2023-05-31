@@ -1,0 +1,114 @@
+.slideDown {
+    bottom: -475px !important;
+}
+
+.toolChatCall {
+    width: 100%;
+    height: 40px;
+    background: #FF3767;
+    bottom: 0;
+    position: absolute;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: 34px;
+}
+
+.toolChatZalo {
+    right: 0;
+    width: 150px;
+    height: 49px;
+    background: #00B2FF;
+    bottom: 0;
+    border-radius: 18px 0px 0px 0px;
+    position: absolute;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notiToolChat {
+    position: absolute;
+    top: -75px;
+}
+
+.round-comment {
+    width: 99px;
+    height: 50px;
+    padding: 9px 0 0 11px;
+    background: #FF3767;
+    text-align: left;
+    position: absolute;
+    font-size: 10px;
+    line-height: 12px;
+    border-radius: 4px;
+}
+
+.round-comment::after {
+    position: absolute;
+    content: "";
+    border-top: 15px solid #FF3767;
+    border-right: 30px solid transparent;
+    top: 40px;
+    left: 0px;
+}
+
+@keyframes bounce2 {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce2 {
+    animation: bounce2 2s ease infinite;
+}
+
+.toolchat-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 999;
+    width: 100%;
+    /* height: 55px; */
+    /* border-top: 1px solid #e7e7e7; */
+    background: transparent;
+    /* padding: 5px 10px; */
+    display: none;
+    /* align-items: center;
+    justify-content: space-around; */
+}
+
+.toolchat-mobile i {
+    font-size: 30px;
+    color: #696969;
+}
+
+.supportText{
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+@media (max-width: 1299px) {
+    .toolchat-mobile {
+        display: flex;
+        transition: 0.5s;
+    }
+
+}

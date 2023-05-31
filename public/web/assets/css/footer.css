@@ -1,0 +1,122 @@
+.footer {
+    padding: 80px 0;
+}
+
+.footerLogoContain {
+    padding-bottom: 40px;
+}
+
+.footerLogo {
+    /* width: 255px; */
+    height: 44px;
+}
+
+.footerLogo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.FooterLogoSection {
+    border-bottom: 0.5px solid #313131;
+    margin-bottom: 36px;
+}
+
+.footerFirstSection {
+    margin-bottom: 24px;
+}
+
+.footerDescText {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.footerDescText a,
+.footerDescText a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.socialTextFooter {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+    color: #000;
+    margin-top: 6px;
+}
+
+.footerWebDesign {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.LeftInfo {
+    display: flex;
+    justify-content: end;
+}
+
+.socialTextAlign {
+    text-align: end;
+}
+
+.socialContain {
+    margin-top: 10px;
+}
+
+.socialIconBox {
+    margin-left: 10px;
+}
+
+.socialLogoMobile {
+    display: none;
+}
+
+.socialInfoBox {
+    display: block;
+}
+
+.copyRight {
+    background-color: var(--grey-background);
+    padding: 15px 0;
+    font-size: 10px;
+    margin-top: 36px;
+    display: none;
+}
+
+/* For screens smaller than 768px (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .footer {
+        padding: 60px 0 0;
+    }
+
+    .footerLogoContain {
+        padding-bottom: 36px;
+    }
+
+    .FooterLogoSection {
+        margin-bottom: 24px;
+    }
+
+    .footerLogo {
+        width: 172px;
+        height: 40px;
+    }
+
+    .LeftInfo {
+        margin-top: 18px;
+        justify-content: center;
+    }
+
+    .socialLogoMobile {
+        display: block;
+    }
+
+    .socialInfoBox {
+        display: none;
+    }
+
+    .copyRight {
+        display: block;
+    }
+}

@@ -1,0 +1,51 @@
+.productChildContainer {
+    border: 1px solid #eef0f8;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.productChildContainer:hover {
+    border: 1px solid #c5c5c5;
+    transition: all 0.4s;
+}
+
+body.dark .productChildContainer {
+    border: 1px solid #1b2e4b;
+}
+
+body.dark .productChildContainer:hover {
+    border: 1px solid #009688;
+}
+
+.productChildText {
+    color: #3b3f5c;
+    font-size: 16px;
+}
+
+body.dark .productChildText {
+    color: #fff !important;
+}
+
+.statusProductDisActive {
+    background-color: #F64E60;
+}
+
+.statusProductActive {
+    background-color: #1BC5BD;
+}
+
+.statusProduct {
+    color: #ffffff;
+    padding: 2px 12px;
+    border-radius: 0.42rem;
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.statusTreeView:hover {
+    color: #ffffff;
+}

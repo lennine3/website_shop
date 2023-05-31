@@ -1,0 +1,474 @@
+/* default */
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../../../../web/assets/fonts/Inter/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Inter Bold';
+    src: url('../../../../web/assets/fonts/Inter/Inter-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Inter SemiBold';
+    src: url('../../../../web/assets/fonts/Inter/Inter-SemiBold.ttf');
+}
+
+.titleText {
+    font-family: 'Inter SemiBold';
+    font-size: 36px;
+    line-height: 47px;
+}
+
+.descText {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* Banner */
+.videoContain {
+    width: 100%;
+    height: 720px;
+}
+
+.videoBanner {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn-upload {
+    border: 1px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.btn-banner-save {
+    border: 1px solid #1BC5BD;
+    color: #1BC5BD;
+    background-color: #C9F7F5;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.upload-btn-wrapper input[type=file] {
+    cursor: pointer;
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+/* about us */
+.aboutUsTitle {}
+
+/* design website */
+
+.designServiceHeadTitle {
+    font-size: 36px;
+    line-height: 47px;
+    font-family: var(--font-family-semi-bold);
+    /* width: 70%; */
+    margin-bottom: 48px;
+}
+
+.designServiceContain {
+    position: relative;
+}
+
+.designServiceContain:hover .designServiceSave {
+    opacity: 1;
+}
+
+.designServiceSave {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    right: 0;
+    background: #C9F7F5;
+    height: 28px;
+    width: 28px;
+    border-radius: 20px;
+    opacity: 0;
+    border: none;
+}
+
+.file-input {
+    display: none;
+}
+
+.image-container {
+    position: relative;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black background */
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    opacity: 0;
+    /* hide by default */
+    transition: opacity 0.3s ease-in-out;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container:hover .text-overlay {
+    opacity: 1;
+    /* show on hover */
+}
+
+.file-label {
+    cursor: pointer;
+}
+
+.designServiceSaveButton {
+    color: #1BC5BD;
+    cursor: pointer;
+}
+
+/* .designServiceContain {
+    width: 330px;
+  } */
+
+.designServiceSubTitle {
+    padding: 24px 0 18px;
+    border-top: 1px solid #000;
+    font-size: 20px;
+    font-family: var(--font-family-semi-bold);
+    margin-bottom: 0;
+}
+
+.designServiceSubDesc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.uiDesignContain {
+    height: 475px;
+    width: 475px;
+}
+
+.uiDesignContain img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.UiDesignSlideContain {
+    max-width: 1350px;
+}
+
+.product-slide {
+    height: 360px;
+}
+
+.slideImg {
+    /* width: 550px;
+    height: 360px; */
+}
+
+.slideImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-slide-name {
+    margin-top: 24px;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.productSlideNameItem {
+    font-family: var(--font-family-semi-bold);
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.UiItemBox {
+    position: relative;
+}
+
+.UiItemBox:hover .UiDesignSaveItem {
+    opacity: 1;
+}
+
+.UiDesignSaveButton {
+    color: #1BC5BD;
+    cursor: pointer;
+}
+
+.UiDesignSaveItem {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    right: 0;
+    background: #C9F7F5;
+    height: 28px;
+    width: 28px;
+    border-radius: 20px;
+    opacity: 0;
+}
+
+.card-custom-Ui .card-body {
+    padding: 1rem 1.25rem !important;
+}
+
+.UiActiveStatus {
+    width: 135px;
+    height: 30px;
+    background: #1BC5BD;
+    border-radius: 15px;
+    display: flex;
+    margin: auto 0;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.UiDeActiveStatus {
+    width: 135px;
+    height: 30px;
+    background: #F64E60;
+    border-radius: 15px;
+    display: flex;
+    margin: auto 0;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+/* seo Service start */
+.seoServiceLeftBg {
+    background-color: #166AEA;
+}
+
+.seoServiceLeftBox {
+    /* padding: 0 100px; */
+    margin: auto 100px;
+}
+
+.seoServiceLeftTitle {
+    font-size: 36px;
+    line-height: 47px;
+    color: #fff;
+    font-family: var(--font-family-semi-bold);
+    margin-bottom: 18px;
+}
+
+.seoServiceLeftDesc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+}
+
+.serServiceRightContain {
+    background-color: #D9D9D9;
+    padding: 120px 160px;
+}
+
+.bigFrame {
+    width: 335px;
+    height: 408px;
+}
+
+.bigFrame img {
+    height: 100%;
+    width: 100%;
+}
+
+.secondFrame {
+    width: 335px;
+    height: 136px;
+    margin-bottom: 31px;
+}
+
+.secondFrame img {
+    height: 100%;
+    width: 100%;
+}
+
+.thirdFrame {
+    width: 335px;
+    height: 241px;
+}
+
+.thirdFrame img {
+    height: 100%;
+    width: 100%;
+}
+
+.seoServiceLeftBg:hover .designServiceSave {
+    opacity: 1;
+}
+
+.bigFrameContain:hover .designServiceSave {
+    opacity: 1;
+}
+
+.secondFrameBox:hover .designServiceSave {
+    opacity: 1;
+}
+
+.thirdFrameBox:hover .designServiceSave {
+    opacity: 1;
+}
+
+.seoServiceImg {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    right: 0;
+    top: 35px;
+    background: #ffffff;
+    height: 28px;
+    width: 28px;
+    border-radius: 20px;
+    opacity: 0;
+}
+
+.bigFrameContain:hover .seoServiceImg {
+    opacity: 1;
+}
+
+.secondFrameBox:hover .seoServiceImg {
+    opacity: 1;
+}
+
+.thirdFrameBox:hover .seoServiceImg {
+    opacity: 1;
+}
+
+.saveSeoServiceImg {
+    color: #3F4254;
+    cursor: pointer;
+}
+
+/* pricingTable */
+.pricingTable{
+    background-color: #ffff;
+    box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+}
+.pricingBox {
+    justify-content: center;
+    display: flex;
+}
+
+.pricingHeadingContainer {
+    padding: 34px 0 21px;
+    background: #FFF3F6;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.pricingTableHeading {
+    text-align: center;
+}
+
+.pricingTableTitle {
+    font-size: 20px;
+    font-family: var(--font-family-semi-bold);
+    line-height: 26px;
+}
+
+.pricingTablePrice {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.pricingTablePriceValueTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.pricingTablePriceValue {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.pricingSaleContain {
+    height: 32px;
+    background: #FF3767;
+    text-align: center;
+}
+
+.pricingSaleText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+    padding: 8px 0;
+}
+
+.pricingTableFeatures {
+    padding: 16px 10px 5px;
+    text-align: left;
+    position: relative;
+    transition: .3s all;
+}
+
+.pricingList {
+    padding: 0;
+    list-style-image: url(../../../../web/assets/image/logo/check.svg);
+    list-style-position: inside;
+    margin: 16px auto;
+}
+
+.pricingHr {
+    border-top: 1px dotted;
+}
+
+.pricingTitle {
+    font-size: 16px;
+    font-family: 'Inter SemiBold';
+}
+
+.shader-carousel-module--arrows--mqZjy {
+    bottom: -3em;
+    position: absolute;
+    right: 0;
+}
+
+.pricingList li {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}

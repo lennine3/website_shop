@@ -1,0 +1,49 @@
+* {
+    font-family: var(--font-family);
+}
+
+/* Heading */
+h2 {
+    size: 32px;
+    line-height: 48px;
+}
+h2 {
+    size: 28px;
+    line-height: 42px;
+}
+h2 {
+    size: 24px;
+    line-height: 36px;
+}
+/* link */
+
+a {
+    text-decoration: none;
+}
+
+.no-horizontal-scroll {
+    overflow-x: hidden;
+}
+
+.titleText {
+    font-family: var(--font-family-semi-bold);
+    font-size: 36px;
+    line-height: 47px;
+}
+
+.descText {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* For screens smaller than 768px (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .titleText {
+        line-height: 34px;
+        font-size: 26px;
+    }
+}
