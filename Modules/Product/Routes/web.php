@@ -24,6 +24,10 @@ Route::prefix('/admin/product')->middleware(['auth','RegisterAdminMenuServicePro
     Route::post('/child/process','ProductController@productChildProcess')->name('product.child.process');
     Route::get('/child/{product}/edit','ProductController@productChildEdit')->name('product.edit');
     Route::get('/{product}/edit','ProductController@productEdit')->name('product.edit');
+
+    Route::post('/drop-zone/process','DropzoneController@process')->name('product.dropzone.process');
+    Route::post('/drop-zone/sort','DropzoneController@sortTable')->name('product.dropzone.sort');
+    Route::post('/drop-zone/delete','DropzoneController@deleteImg')->name('product.dropzone.img.delete');
 });
 
 Route::prefix('/admin/feature')->middleware(['auth','RegisterAdminMenuServiceProvider','locale'])->group(function () {

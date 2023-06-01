@@ -124,16 +124,13 @@ class Upload
         $path_parts = pathinfo($file_name);
 
         $webp_path = $path_parts['filename'] . '.webp';
-        // dd($webp_path);
         $this->convert_to_webp($directory.$file_name, $directory.$webp_path, $resize);
 
-        return $size ? [
-            'name' => $file_name,
-            'width' => $width,
-            'height' => $height
-        ] : [
+        return [
             'name'=> $file_name,
             'webp_name'=>$webp_path,
+            'width' => $width,
+            'height' => $height
         ];
     }
 

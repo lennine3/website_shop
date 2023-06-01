@@ -4,6 +4,7 @@ namespace Modules\Product\Entities;
 
 use App\Traits\FullTextSearch;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Product\Entities\ProductImage;
 
 class Product extends Model
 {
@@ -29,29 +30,9 @@ class Product extends Model
         return $this->belongsToMany('Modules\Product\Entities\Feature', 'Modules\Product\Entities\ProductFeature', 'product_id', 'feature_id');
     }
 
-    public function loveproduct()
-    {
-        return $this->hasMany('Modules\Product\Entities\ProductLove', 'product_id', 'product_id');
-    }
-
-    public function state()
-    {
-        return $this->belongsTo('App\Modules\Location\Models\State', 'state_id', 'product_id');
-    }
-
-    public function evaluate()
-    {
-        return $this->hasMany('App\Modules\Evaluate\Models\Evaluate', 'product_id', 'product_id');
-    }
-
     public function productfeature()
     {
         return $this->hasMany('App\Modules\Evaluate\Models\product_features', 'product_id', 'product_id');
-    }
-
-    public function countevaluate()
-    {
-        return $this->with('evaluate')->avg('star');
     }
 
     public function children()
@@ -96,7 +77,7 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany('Modules\Product\Entities\ProductImage', 'product_id', 'product_id')->orderBy('position', 'ASC');
+        return $this->hasMany(ProductImage::class, 'product_id', 'id')->orderBy('position', 'ASC');
     }
 
     public function skus()

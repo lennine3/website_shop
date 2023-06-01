@@ -123,8 +123,8 @@ class ProductController extends Controller
         $featureInputs = $inputs['feature'];
 
         $product = !empty($inputs['product_id']) ? product::findOrFail($inputs['product_id']) : $this->product;
-        // dd($product);
         $this->product_service->execute($product, $inputs);
+
         // Product feature
         if (count(ProductFeature::where('product_id', $product->product_id)->get())>1) {
             ProductFeature::where('product_id', $product->product_id)->delete();
