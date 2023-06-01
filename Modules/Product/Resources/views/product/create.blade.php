@@ -29,21 +29,21 @@
                             <button class="nav-link active d-flex align-items-center" id="form-tab" data-bs-toggle="tab"
                                 href="#form-content-tab" role="tab" aria-controls="form-content-tab"
                                 aria-selected="true">
-                                <i data-feather="home"></i>
+                                <i data-feather="info"></i>
                                 Thông tin</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link d-flex align-items-center" id="child-tab" data-bs-toggle="tab"
                                 href="#child-content-tab" role="tab" aria-controls="child-content-tab"
                                 aria-selected="true">
-                                <i data-feather="home"></i>
+                                <i data-feather="archive"></i>
                                 Sản phẩm con</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link d-flex align-items-center" id="image-tab" data-bs-toggle="tab"
                                 href="#image-content-tab" role="tab" aria-controls="image-content-tab"
                                 aria-selected="true">
-                                <i data-feather="home"></i>
+                                <i data-feather="image"></i>
                                 Hình ảnh</button>
                         </li>
                     </ul>

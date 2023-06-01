@@ -169,6 +169,7 @@ var productDropzone = new Dropzone("#productDropzone", {
 });
 productDropzone.on("success", function (file, response) {
     $('#tr_body').html(response.html);
+    toastr.success(response.message);
     removeImage();
 });
 

@@ -40,7 +40,7 @@ class DropzoneController extends Controller
         $product=Product::findOrFail($request->product_id);
         $html = view('product::product.tr_item', compact('product','showScript'))->render();
 
-        return response()->json(['success' => true,'html'=>$html]);
+        return response()->json(['success' => true,'html'=>$html,'message'=>'Đã thêm ảnh vào sản phẩm']);
     }
 
     public function sortTable()
