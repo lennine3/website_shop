@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        Thêm/Sửa Sản phẩm con
+        @lang('product::product.product.child.form')
     </div>
     <div class="card-body">
         <input type="text" value="{{ @$showScript ? @$product->id : @$product->childId }}" name="product_child_id" hidden>
@@ -11,7 +11,7 @@
                     value="{{ @$product->product_code }}" required>
             </div>
             <div class="col-lg-12 mb-3">
-                <label for="childName" class="form-label">Tên sản phẩm</label>
+                <label for="childName" class="form-label">@lang('product::product.product.title')</label>
                 <input type="text" class="form-control" id="childName" name="name" required
                     value="{{ @$product->name }}">
             </div>

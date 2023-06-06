@@ -54,7 +54,7 @@
             @php
                 $productCateCheck = ['product.category.index', 'product.category.create', 'product.category.edit'];
                 $featureCheck = ['product.feature.index', 'product.feature.create', 'product.feature.edit'];
-                $productCheck = ['product.create'];
+                $productCheck = ['product.index', 'product.create', 'product.edit', 'product.search'];
             @endphp
             <li
                 class="menu {{ in_array($routeName, $productCheck) || in_array($routeName, $productCateCheck) || in_array($routeName, $featureCheck) ? 'active' : '' }}">
@@ -114,11 +114,12 @@
                         </a>
                         <ul class="collapse list-unstyled sub-submenu {{ in_array($routeName, $productCheck) ? 'show' : '' }}"
                             id="product-menu" data-bs-parent="#pages">
-                            {{-- <li class="{{ $routeName == 'product.category.index' ? 'active' : '' }}">
-                                <a href="{{ route('product.category.index') }}">
-                                    @lang('menu.product.sub.product_category.list')
+                            <li
+                                class="{{ $routeName == 'product.search' || $routeName == 'product.index' ? 'active' : '' }}">
+                                <a href="{{ route('product.index') }}">
+                                    @lang('menu.product.sub.product.list')
                                 </a>
-                            </li> --}}
+                            </li>
                             <li
                                 class="{{ $routeName == 'product.create' || $routeName == 'product.edit' ? 'active' : '' }}">
                                 <a href="{{ route('product.create') }}">

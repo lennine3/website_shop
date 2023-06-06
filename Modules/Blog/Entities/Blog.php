@@ -81,7 +81,7 @@ class Blog extends Model
         if (!empty($blog_category_id)) {
             $blog_category = BlogCategory::find($blog_category_id);
             $children_ids = $blog_category->childrenIds() ?: [$blog_category->id];
-            $query->whereIn('blog_category_id', $children_ids);
+            $query->whereIn('blog_category_id', $children_ids)->orWhere('blog_category_id',$blog_category_id);
         }
         return $query;
     }
@@ -190,14 +190,9 @@ class Blog extends Model
     {
         $blogs = $this->query()
             ->id(@$params['id'])
-            ->Slug(@$params['slug'])
             ->Title(@$params['title'])
             ->BlogCategoryId(@$params['blog_category_id'])
-            ->BlogCategoryIdArr(@$params['blog_category_idArr'])
-            ->status(@$params['status'])
-            ->PositionCategory(@$params['position'])
-            ->Order(@$params['order'])
-            ->showhome(@$params['showhome']);
+            ->status(@$params['status']);
         return !empty($params['limit']) ? $blogs->paginate($params['limit']) : $blogs->get();
     }
 
@@ -221,13 +216,6 @@ class Blog extends Model
         return !empty($params['limit']) ? $filterBlogs->paginate($params['limit']) : $filterBlogs->get();
     }
 
-    public function random_blogs_ref($params = [])
-    {
-        $filterBlogs = $this->query()
-            ->blogCategoryId(@$params['blog_category_id'])
-            ->status(@$params['status']);
-        return $filterBlogs->where('id', '!=', @$params['id'])->inRandomOrder()->limit(@$params['limit'])->get();
-    }
 
     public function delete_category($id)
     {

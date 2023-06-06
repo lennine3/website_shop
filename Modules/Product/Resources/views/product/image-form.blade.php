@@ -3,7 +3,7 @@
     <div class="col-xl-8">
         <div class="card">
             <div class="card-header">
-                Danh sách hình ảnh
+                @lang('product::product.product.image.list')
             </div>
             <div class="card-body">
                 <div class="row">

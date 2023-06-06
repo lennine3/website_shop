@@ -17,6 +17,7 @@ return [
         'image'=>'Ảnh đại diện'
     ],
     'product'=>[
+        'tab'=>['info'=>'Thông tin','child'=>'Sản phẩm con','image'=>'Hình ảnh'],
         'header'=>[
             'add'=>'Thêm danh mục sản phẩm mới',
             'edit'=>'Chỉnh sửa danh mục sản phẩm'
@@ -33,7 +34,19 @@ return [
             'A'=>'Hoạt động',
             'D'=>'Không hoạt động'
         ],
-        'image'=>'Image',
+        'image'=>[
+            'list'=>'Danh sách hình ảnh',
+            'image'=>'Ảnh',
+            'size'=>'Tên / Kích thước',
+            'form'=>'Tải hình ảnh',
+            'choose'=>'Chọn ảnh',
+            'upload'=>'Tải tất cả',
+            'delete'=>'Xóa tất cả'
+        ],
+        'child'=>[
+            'list'=>'Danh sách sản phẩm con',
+            'form'=>'Thêm/ Sửa sản phẩm con'
+        ]
     ],
     'feature'=>[
         'header'=>[

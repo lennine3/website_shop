@@ -114,7 +114,22 @@ class ProductController extends Controller
         $features=Feature::where('parent_id', 0)->get();
         return view('product::product.create', compact('productList', 'categories', 'features'));
     }
-
+    public function productList()
+    {
+        $productList=Product::where('parent_product_id', 0)->paginate(8);
+        $categories=Category::where('parent_id', 0)->get();
+        return view('product::product.list', compact('productList', 'categories'));
+    }
+    public function productSearch(Request $request)
+    {
+        $categories=Category::where('parent_id', 0)->get();
+        $filters=['limit'=>8,'parent_product_id'=>0];
+        $request->title ? $filters['name']=$request->title : '';
+        $request->status ? $filters['status']=$request->status : '';
+        $request->category ? $filters['category_ids']=$request->category : '';
+        $productList = $this->product->get_products_info($filters);
+        return view('product::product.list', compact('productList', 'categories', 'filters'));
+    }
     public function productProcess()
     {
         $message=trans('product::product.controller.success.add');

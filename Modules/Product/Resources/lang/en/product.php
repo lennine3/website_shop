@@ -17,6 +17,7 @@ return [
         'image'=>'Image'
     ],
     'product'=>[
+        'tab'=>['info'=>'Info','child'=>'Child product','image'=>'Images'],
         'header'=>[
             'add'=>'Add blog',
             'edit'=>'Edit blog'
@@ -33,7 +34,19 @@ return [
             'A'=>'Activate',
             'D'=>'Deactivate'
         ],
-        'image'=>'Image',
+        'image'=>[
+            'list'=>'List image',
+            'image'=>'Image',
+            'size'=>'name / size',
+            'form'=>'Form image',
+            'choose'=>'Choose images',
+            'upload'=>'Upload all',
+            'delete'=>'Delete all'
+        ],
+        'child'=>[
+            'list'=>'Child product list',
+            'form'=>'Add/ Edit child product'
+        ]
     ],
     'feature'=>[
         'header'=>[

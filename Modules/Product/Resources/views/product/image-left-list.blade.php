@@ -3,9 +3,9 @@
         <thead>
             <tr class="text-muted">
                 <th style="min-width: 100px">
-                    Ảnh
+                    @lang('product::product.product.image.image')
                 </th>
-                <th style="min-width: 300px">Tên /Kích thước</th>
+                <th style="min-width: 300px">@lang('product::product.product.image.size')</th>
                 <th style="min-width: 100px"></th>
             </tr>
         </thead>

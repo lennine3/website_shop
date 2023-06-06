@@ -5,7 +5,7 @@
         <div class="col-xl-8">
             <div class="card">
                 <div class="card-header">
-                    Danh sách sản phẩm con
+                    @lang('product::product.product.child.list')
                 </div>
                 <div class="card-body">
                     <div class="row">

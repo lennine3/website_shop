@@ -18,6 +18,7 @@ Route::prefix('/admin/blog')->middleware(['auth','RegisterAdminMenuServiceProvid
     Route::get('/create', 'BlogController@create')->name('blog.create');
     Route::get('/{blog}/edit', 'BlogController@edit')->name('blog.edit');
     Route::post('/process','BlogController@store')->name('blog.store');
+    Route::get('/search', 'BlogController@blogSearch')->name('blog.search');
     Route::get('/category', 'BlogController@blogCategory')->name('blog.category.index');
     Route::get('/category/create','BlogController@blogCategoryDetail')->name('admin.blog.category.create');
     Route::get('/category/{blogCategory}/edit','BlogController@blogCategoryDetailEdit')->name('admin.blog.category.edit');

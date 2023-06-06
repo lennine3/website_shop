@@ -46,10 +46,10 @@
                         <div class="input-group col-lg-12 mb-3">
                             <span class="input-group-text"><i data-feather="clipboard"></i></span>
                             <input id="org_price" type="text" name="org_price" class="form-control"
-                                placeholder="Giá  nhập" aria-label="Giá nhập" value="{{ $product->org_price }}">
+                                placeholder="Giá  nhập" aria-label="Giá nhập" value="{{ @$product->org_price }}">
                             <span class="input-group-text"><i data-feather="clipboard"></i></span>
                             <input id="sell_price" type="text" name="sell_price" class="form-control"
-                                placeholder="Giá bán" aria-label="Giá bán" value="{{ $product->sell_price }}">
+                                placeholder="Giá bán" aria-label="Giá bán" value="{{ @$product->sell_price }}">
                         </div>
                         <div class="col-lg-12 mb-3">
                             <label for="qty" class="form-label">@lang('product::product.product.quantity')</label>
@@ -72,7 +72,7 @@
                                     <option value="0">Không có dữ liệu</option>
                                     @foreach ($feature->children as $item)
                                         <option value="{{ $item->id }}"
-                                            {{ $product->features->contains('id', $item->id) ? 'selected' : '' }}>
+                                            {{ @$product && $product->features->contains('id', $item->id) ? 'selected' : '' }}>
                                             {{ $item->name }}
                                         </option>
                                     @endforeach

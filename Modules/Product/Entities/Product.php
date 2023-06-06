@@ -5,6 +5,9 @@ namespace Modules\Product\Entities;
 use App\Traits\FullTextSearch;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Product\Entities\ProductImage;
+use App\Models\Seo;
+
+use function App\Libraries\StripSlug;
 
 class Product extends Model
 {
@@ -23,6 +26,12 @@ class Product extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
+    public function seo()
+    {
+        return $this->hasOne(Seo::class, 'object_id', 'id')
+                    ->where('type', Seo::PRODUCT);
     }
 
     public function features()
@@ -97,7 +106,21 @@ class Product extends Model
         }
         return $query;
     }
-
+    public function scopeName($query, $name)
+    {
+        if (!empty($name)) {
+            $query->where(function ($subquery) use ($name) {
+                $subquery->where('name', 'like', '%' . StripSlug($name) . '%');
+            });
+        }
+        return $query;
+    }
+    public function scopeCategories($query, $category_ids){
+        if (!empty($category_ids)) {
+            $query->where('category_id', $category_ids);
+        }
+        return $query;
+    }
     public function scopeDifferentId($query, $DifferentId)
     {
         if (!empty($DifferentId)) {
@@ -165,16 +188,6 @@ class Product extends Model
     {
         if (!empty($has_child)) {
             $query->where('has_child', $has_child);
-        }
-        return $query;
-    }
-
-    public function scopeCategories($query, $category_ids)
-    {
-        if (!empty($category_ids) && count($category_ids) > 0) {
-            return $query->whereHas('categories', function ($q) use ($category_ids) {
-                $q->whereIn('id', $category_ids);
-            });
         }
         return $query;
     }
@@ -274,25 +287,6 @@ class Product extends Model
         return $query;
     }
 
-    public function scopeEqualCategory($query, $category_ids)
-    {
-        if (!empty($category_ids)) {
-            $i = 0;
-            foreach ($category_ids as $value) {
-                if ($value != null) {
-                    $i++;
-                }
-            }
-            if ($i == 0) {
-                return $query;
-            }
-            $query->whereHas('categories', function ($q) use ($category_ids) {
-                $q->whereIn('id', $category_ids);
-            });
-        }
-        return $query;
-    }
-
     public function scopeEqualFeaturesIn($query, $feature_ids)
     {
         if (!empty($feature_ids)) {
@@ -381,7 +375,17 @@ class Product extends Model
         }
         return false;
     }
+    public function get_products_info($params = [])
+    {
+        $products = $this->query()
+            ->name(@$params['name'])
+            ->categories(@$params['category_ids'])
+            ->parent_product_id(@$params['parent_product_id'])
+            ->status(@$params['status']);
 
+        $products->with(['images']);
+        return !empty($params['limit']) ? $products->paginate($params['limit']) : $products->get();
+    }
     public function get_products($params = [])
     {
         $products = $this->query()
@@ -400,7 +404,6 @@ class Product extends Model
             ->qty(@$params['qty'])
             ->order(@$params['orderBy'])
             ->parent_product_id(@$params['parent_product_id'])
-            ->EqualCategory(@$params['categoryarr_ids'])
             ->Slug(@$params['slug'])
             ->SlugDifferent(@$params['slug_diffrent'])
             ->EqualFeaturesIn(@$params['id_FeaturesIn'])

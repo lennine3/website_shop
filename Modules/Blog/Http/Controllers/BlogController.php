@@ -19,10 +19,12 @@ class BlogController extends Controller
 {
     private $upload;
     private $slug_optimize;
+    private $blog;
     public function __construct()
     {
         $this->upload=new Upload();
         $this->slug_optimize= new SlugOptimize();
+        $this->blog = new Blog();
     }
     public function blogCategory()
     {
@@ -65,8 +67,9 @@ class BlogController extends Controller
     }
     public function index()
     {
-        $blogList=Blog::all();
-        return view('blog::blog.index', compact('blogList'));
+        $blogList=Blog::paginate(16);
+        $categories=BlogCategory::all();
+        return view('blog::blog.index', compact('blogList', 'categories'));
     }
 
     public function create()
@@ -131,24 +134,15 @@ class BlogController extends Controller
         return view('blog::blog.create', compact('blogCategoryList', 'blog'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
+    public function blogSearch(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        $categories=BlogCategory::all();
+        $filters=['limit'=>8];
+        $request->title ? $filters['title']=$request->title : '';
+        $request->status ? $filters['status']=$request->status : '';
+        $request->category ? $filters['blog_category_id']=$request->category : '';
+        // dd($filters);
+        $blogList = $this->blog->get_blogs($filters);
+        return view('blog::blog.index', compact('blogList', 'categories','filters'));
     }
 }
