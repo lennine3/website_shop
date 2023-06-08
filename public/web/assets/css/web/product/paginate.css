@@ -1,0 +1,28 @@
+.paginateBox {
+    padding: 5px;
+}
+
+.paginateBox a {
+    text-align: center;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #000;
+}
+
+.paginateBox.active a {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.paginateBox.prev {
+    /* border-radius: 8px 0 0 8px; */
+}
+
+.paginateBox.next {
+    /* border-radius: 0 8px 8px 0; */
+}

@@ -16,18 +16,25 @@ use App\Models\SectionInfo;
 use App\Models\DesignService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
+use Modules\Product\Entities\Category;
+use Modules\Product\Entities\Product;
 
 class HomeController extends Controller
 {
     private $setting;
     private $blog;
     private $blogCategory;
+    private $product;
+    private $category;
+
     public function __construct()
     {
         // $this->middleware('auth');
         $this->setting= new Setting();
         $this->blog = new Blog();
         $this->blogCategory = new BlogCategory();
+        $this->product=new Product();
+        $this->category=new Category();
     }
 
     /**
@@ -64,6 +71,8 @@ class HomeController extends Controller
             $response = $this->blogCategory($params);
         } elseif (@$getSlug->type == SlugOptimize::TYPE_BLOG) {
             $response = $this->blogDetail($params);
+        } elseif (@$getSlug->type == SlugOptimize::TYPE_CATE_PRODUCT) {
+            $response = $this->category($params);
         }
         if (isset($response)) {
             return $response;
@@ -118,6 +127,14 @@ class HomeController extends Controller
         $blogData=$this->blog->findBySlugOrId($params);
         $relatedBlog=$this->blog->get_blogs_related(4, $blogData->blog_category_id, $blogData->id);
         return view('web.blog.blogDetail', compact('blogData', 'relatedBlog'));
+    }
+    public function category($params)
+    {
+        $cateData=$this->category->findBySlugOrId($params);
+        // dd($productData->products);
+        $productList=$this->product->get_products_info(['category_ids'=>$cateData->id,'limit'=>40]);
+        // dd($products);
+        return view('web.product.category', compact('cateData', 'productList'));
     }
     public function clearCache()
     {

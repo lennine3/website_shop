@@ -23,6 +23,13 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+    public function findBySlugOrId($identifier)
+    {
+        return $this->where(function ($query) use ($identifier) {
+            $query->where('slug', $identifier)
+                ->orWhere('id', $identifier);
+        })->firstOrFail();
+    }
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
@@ -115,7 +122,8 @@ class Product extends Model
         }
         return $query;
     }
-    public function scopeCategories($query, $category_ids){
+    public function scopeCategories($query, $category_ids)
+    {
         if (!empty($category_ids)) {
             $query->where('category_id', $category_ids);
         }

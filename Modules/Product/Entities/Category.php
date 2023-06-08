@@ -5,6 +5,8 @@ namespace Modules\Product\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Seo;
+use Modules\Product\Entities\Product;
+
 class Category extends Model
 {
     use HasFactory;
@@ -15,7 +17,36 @@ class Category extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Modules\Product\Models\Product', 'App\Modules\Product\Models\ProductCategory', 'category_id', 'product_id');
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
+    }
+
+    public function allGrandFather()
+    {
+        return $this->parent()->with('allGrandFather');
+    }
+
+    // public function grandFather()
+    // {
+    //     return $this->allGrandFather();
+    // }
+
+    public function grandFather()
+    {
+        return $this->parent ? $this->parent->grandFather()->push($this->parent) : collect([]);
+        // $grandFather = [];
+
+        // $parent = $this->parent;
+        // while ($parent) {
+        //     $grandFather[] = $parent;
+        //     $parent = $parent->parent;
+        // }
+
+        // return collect(array_reverse($grandFather));
     }
 
     public function children()
@@ -32,7 +63,13 @@ class Category extends Model
     {
         return $this->allDescendants()->get();
     }
-
+    public function findBySlugOrId($identifier)
+    {
+        return $this->where(function ($query) use ($identifier) {
+            $query->where('slug', $identifier)
+                ->orWhere('id', $identifier);
+        })->firstOrFail();
+    }
     public function categories()
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
@@ -45,11 +82,6 @@ class Category extends Model
     public function banners()
     {
         return $this->hasMany('App\Modules\Banner\Models\Banner', 'object_id', 'id')->where('type', 'CATEGORY');
-    }
-
-    public function parent()
-    {
-        return $this->hasOne(Category::class, 'id', 'parent_id');
     }
 
     public function blog()

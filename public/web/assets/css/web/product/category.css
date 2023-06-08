@@ -1,0 +1,22 @@
+.breadcrumb-background {
+    background-color: #e9ecef;
+}
+
+.breadcrumb {
+    padding: .25rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb-item a {
+    color: #000;
+}
+
+.productImg {
+    aspect-ratio: 2/3;
+}
+
+.productImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
